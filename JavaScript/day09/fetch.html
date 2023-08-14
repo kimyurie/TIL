@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const BACKEND_URL = 'https://jsonplaceholder.typicode.com'
+
+        fetch(BACKEND_URL + '/posts', {
+            method: 'GET',
+        })
+            .then((response) => response.json())
+            .then((res) => console.log(res))
+            .catch((err) => {
+                console.error(err);
+            });
+
+            // json의 형태를 주고 받지 않음(ㄴ반환타입이 json형태가 아니다)
+            // **따라서 json 형태로 변환할 필요가 있음
+            // .json
+
+            // keyword: promise 형태(then, catch) //.json() 변환 // (url, option)
+            // ㄴ 위 세가지만 알면 됌!
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

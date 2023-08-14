@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>capture</title>
+    <style>
+        body * {
+            margin: 10px;
+            border: 1px solid #00f;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        FORM
+        <div>
+            DIV
+            <p>P</p>
+        </div>
+    </form>
+    <script>
+        const els = document.querySelectorAll('*');
+        // ㄴ모든 요소를 클릭할 때 마다 태그이름 알리는 alert가 떠야함
+        for (let el of els) {
+            el.addEventListener(
+                'click',
+                function (e) {
+                    alert(el.tagName);
+                },
+                true //ㄴ true라는 속성 달면 캡쳐링이 일어남/ false는 생략 가능
+            );
+        }
+    </script>
+</body>
+
+</html>

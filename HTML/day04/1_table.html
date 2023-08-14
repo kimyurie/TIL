@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블</title>
+</head>
+<body>
+    <!-- width랑 height의 길이에는 px, % 등 다양한 단위를 사용-->  
+    <!-- 전체 모니터 해상도가 가로 1920px 세로 1080px  -->
+    <!-- html에서 태그 안 쪽에 있는 태그들을 자식 태그라 하고 상위 태그를 부모 태그(요소)-->
+    <table border="1" width="70%"> <!-- body 길이의 70%만큼-->
+        <caption>게시판</caption>
+        <tr height="50px">
+            <th>글번호</th>
+            <th width="50%">제목</th> <!--th의 width는 테이블 기준-->
+            <th>작성자</th>
+            <th>작성날짜</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td align="center">오늘 날씨 정말 덥네요...</td>
+            <td align="right">김유리</td>
+            <td align="left">22-07-17</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td rowspan="2">4</td>
+            <td colsapn="2">5</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+    </table>
+    
+</body>
+</html>

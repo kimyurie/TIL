@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SET-TIME</title>
+</head>
+
+<body>
+    <div id="selector">저를 선택해주세요</div>
+    <button onclick="handleStartSetTime()">셋타임 시작</button>
+    <button onclick="handleStopSetTime()">셋타임 취소</button>
+    <button onclick="handleStartSetInterval()">셋인터벌 시작</button>
+    <button onclick="handleStopSetInterval()">셋인터벌 취소</button>
+    <script>
+        const $selector = document.getElementById("selector");
+        let setTime;
+        let Interval;
+
+        function selectorPrint() {
+            console.log($selector.innerText);
+        }
+        function handleStartSetTime() {
+            setTime = setTimeout(selectorPrint, 3000); // ㄴ 첫번째 인자로 실행할 코드를 담고 있는 함수를 받고, 두번째 인자로 지연 시간을 밀리초(ms) 단위로 받습니다
+            console.log('test'); // ㄴ 얘와 같은 동기적 코드가 먼저 실행된 후 위 실행
+            // 1000ms = 1초
+            // 최소 3초 뒤에 실행
+            // ㄴsetTimeout은 웬만하면 잘 사용 안댐
+        }
+
+        function handleStopSetTime() {
+            clearTimeout(setTime);
+            // ㄴ시작 버튼 누르고 취소버튼 누르면 안나옴
+        }
+
+        function handleStartSetInterval() {
+            Interval = setInterval(selectorPrint, 3000); //ㄴ 이벤트를 set //ㄴ 3초 간격으로 계속 실행됌
+        }
+
+        function handleStopSetInterval() {
+            clearInterval(Interval); // ㄴ기존에 등록되있던 인터벌을 취소
+        }
+    </script>
+</body>
+
+</html>

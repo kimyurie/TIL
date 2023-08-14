@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/common.css" />
+        <link rel="stylesheet" href="./css/reset.css" />
+        <link rel="stylesheet" href="./css/style.css" />
+        <title>example</title>
+    </head>
+    <body>
+        <!-- 마우스를 따라다닐 원 -->
+        <div class="mouse_circle"></div>
+        <div id="wrapper">
+            <!-- 메뉴 -->
+            <header>
+                <ul id="menu_list">
+                    <li class="menu_item">
+                        <p>메뉴1</p>
+                        <ul class="subMenu_list">
+                            <li class="subMenu_item">서브메뉴1</li>
+                            <li class="subMenu_item">서브메뉴2</li>
+                            <li class="subMenu_item">서브메뉴3</li>
+                        </ul>
+                    </li>
+                    <li class="menu_item">
+                        <p>메뉴2</p>
+                        <ul class="subMenu_list">
+                            <li class="subMenu_item">서브메뉴1</li>
+                            <li class="subMenu_item">서브메뉴2</li>
+                        </ul>
+                    </li>
+                    <li class="menu_item"><p>메뉴3</p></li>
+                    <li class="menu_item"><p>메뉴4</p></li>
+                    <li class="menu_item"><p>메뉴5</p></li>
+                </ul>
+            </header>
+            <!-- 가림막 -->
+            <nav class="nav_bar">
+                <div>SEONG YONG</div>
+            </nav>
+            <!-- 컨텐츠 -->
+            <div id="container">
+                <section id="banner">
+                    <div id="banner_list">
+                        <div class="banner_item"></div>
+                        <div class="banner_item"></div>
+                        <div class="banner_item"></div>
+                    </div>
+                    <div id="banner_btn">
+                        <button id="prev_btn">&lt;</button>
+                        <button id="next_btn">&gt;</button>
+                    </div>
+                </section>
+                <section id="section1"></section>
+                <section id="section2"></section>
+            </div>
+            <!-- 푸터 -->
+            <footer></footer>
+        </div>
+        <script src="./js/script.js"></script>
+    </body>
+</html>

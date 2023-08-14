@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#wrapper {
+  background-color: #fff8dc;
+}
+
+header {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+nav,
+#container {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+#container {
+  background-color: #ffd700;
+  padding: 1rem;
+}
+
+nav > ul {
+  height: 3rem;
+  /* 1rem = 16px */
+  display: flex;
+  justify-content: center; /* 수평 가운데 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
+  list-style: none;
+  color: #fff;
+}
+
+nav > ul > li {
+  margin: 0 0.5rem;
+}
+
+/* 원래는 id를 선택해서 주는게 좋음 */
+#container > section:first-child {
+  text-align: center;
+  padding: 1rem;
+}
+
+#container > section:first-child > img {
+  margin: 0 0.5rem;
+}
+
+#container > section:nth-child(2) > p {
+  /* 컨테이너의 자식인 섹션들 중에서 두번째 자식 */
+  margin: 0 auto;
+  text-align: center;
+  width: 768px;
+  border: 3px solid #000;
+  margin-bottom: 1rem;
+}
+
+footer {
+  background-color: #4682b4;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+/* 가로길이: 0~479 */
+@media screen and (max-width: 479px) {
+  nav,
+  #container {
+    width: 395px;
+  }
+
+  #container > section:nth-child(2) > p {
+    display: none;
+  }
+
+  #container > section:first-child > img {
+    width: 60%;
+    margin: 1rem 0;
+  }
+
+  footer {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 1023px) {
+  nav,
+  #container {
+    width: 768px;
+  }
+
+  #container > section:nth-child(2) > p {
+    width: 680px;
+  }
+
+  footer {
+    background-color: #4169e1;
+  }
+}

@@ -1,0 +1,190 @@
+body {
+    overflow-x: hidden;
+}
+
+.mouse_circle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0.5;
+    z-index: 999;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.in_circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 1.5s;
+}
+
+.click_circle {
+    animation: clickCircle 1.5s ease-in-out;
+}
+
+@keyframes clickCircle {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.circle_1 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: darkred;
+}
+
+.circle_2 {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.circle_3 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: aqua;
+}
+
+.circle_4 {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: goldenrod;
+}
+
+.nav_bar {
+    z-index: 200;
+    top: 0px;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    width: 100%;
+    position: fixed;
+    background: none;
+    backdrop-filter: blur(80px);
+    transition-duration: 1s;
+    display: none;
+    height: 0px;
+}
+
+.fixed {
+    display: flex;
+    height: 48px;
+}
+
+header > #menu_list {
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header > #menu_list > .menu_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 200px;
+    height: 48px;
+    cursor: pointer;
+    position: relative;
+}
+
+.subMenu_list {
+    position: absolute;
+    opacity: 0;
+    text-align: center;
+    top: 48px;
+    overflow-y: hidden;
+    width: 200px;
+    background-color: yellowgreen;
+    z-index: 200;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+}
+
+.subMenu_list > .subMenu_item {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subMenu_list > .subMenu_item:hover {
+    background-color: #999;
+}
+
+.active {
+    opacity: 1;
+    padding: 16px 0;
+}
+
+#banner {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: yellow;
+}
+
+#banner > #banner_list {
+    width: 860px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: green;
+    display: flex;
+}
+
+#banner > #banner_list > .banner_item {
+    min-width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: orange;
+}
+
+#banner > #banner_btn {
+    position: absolute;
+    width: 930px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#banner > #banner_btn > button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    outline: none;
+    background-color: red;
+    color: #fff;
+    cursor: pointer;
+}
+
+#banner > #banner_btn > button:hover {
+    opacity: 0.8;
+}
+
+#container > #section1 {
+    height: 60vh;
+    background-color: aqua;
+}
+
+#container > #section2 {
+    height: 60vh;
+    background-color: #f5f5f5;
+}

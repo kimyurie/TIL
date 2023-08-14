@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../day05/css/style.css" rel="stylesheet"/>
+    <title>ID/CLASS 선택자</title>
+    <style>
+        .redText{
+            color: red;
+        }
+
+        .blueText{
+            color: green;
+        }
+
+        .bigText{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h2>id 선택자</h2>
+    <div id="header"> div 첫번째 영역 </div>
+    <div id="container"> div 컨텐츠 영역 </div>
+    <div id="footer"> div 두번째 영역 </div>
+
+    <h2>class 선택자</h2>
+    <p>
+        클래스 선택자는<span class="redText">/은 특정 집단</span>의 여러요소를 한번에 선택할 때 
+        <span class="blueText bigText">사용</span>
+    </p>
+    <!-- div.big의 텍스트 특정집단 ... 사용한다이므로
+        상위(부모)태그의 속성을 상속받아 적용된다
+        대표적으로 색상관련, 폰트관련 속성들이 상속된다.   
+    -->
+    <div class="bigText">
+        <span class="redText">특정집단</span>을 <span class="blueText">클래스</span> 라고 한다.
+    </div>
+</body>
+</html>

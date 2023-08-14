@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selector</title>
+    <script>
+        //ㄴ자바스크립트가 문서가 준비된 상황 이후에 발동하도록만 한다면 문서 앞에 선언해도 상관 없어지는데, 바로 이런 것을 해주는 것이 window.onload 메소드
+        window.onload = function () {
+            const idDom = document.getElementById("id");
+            console.log('1', idDom);
+        };
+
+        function onPrintIdDom() {
+            const idDom = document.getElementById("id");
+            console.log('2', idDom);
+        }
+
+        onPrintIdDom();
+    </script>
+</head>
+
+<body>
+    <div id="id">ID</div>
+    <div class="class">CLASS</div>
+</body>
+<script>
+    const idDom = document.getElementById("id");
+    const idSelector = document.querySelector("#id");
+    console.log('id', idDom, idSelector);
+
+    const classDom = document.getElementsByClassName("class");
+    const classSelector = document.querySelector(".class");
+    const classSelectorAll = document.querySelectorAll(".class");
+    console.log(classDom);
+    console.log(classSelector);
+    console.log(classSelectorAll);
+
+    const TagName = document.getElementsByTagName('div');
+    console.log(TagName);
+</script>
+
+</html>

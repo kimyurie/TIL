@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상대위치</title>
+    <style>
+        .relative1 {
+            width: 200px;
+            background-color: #ff1493;
+            padding: 20px;
+            margin-left: 50px;
+            margin-bottom: 10px;
+        }
+
+        .relative2 {
+            width: 400px;
+            height: 200px;
+            background-color: #00bfff;
+            padding: 20px;
+            position: relative;
+            /* 내 현재 위치에서 20px, 50px만큼 움직여*/
+            top: 20px;
+            left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>상대 위치 지정방식</h2>
+    <div class="relative1">상대 위치 지정방식 1</div>
+    <div class="relative2">
+        상대 위치 지정방식2
+        <div>자식 div</div>
+    </div>
+</body>
+
+</html>

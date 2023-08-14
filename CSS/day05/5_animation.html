@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation - 2</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 100px;
+            background-color: #ff1493;
+            animation: rotate 1.5s infinite alternate;
+            /*무한반복, 한번 끝까지 하고 다시 반대로*/
+        }
+
+        @keyframes rotate {
+            50% {
+                /* 
+                    perspective()
+                    3D 환경 만들기 위해 사용
+                    사용자의 관찰자 시점에서 입체감을 부여하는 속성
+                    해당 스크린에서 관찰자가 얼마만큼 떨어져있는가
+                */
+                transform: perspective(150px) rotateX(-180deg);
+                background-color: pink;
+            }
+
+            100% {
+                transform: perspective(150px) rotateX(-180deg) rotateY(-180deg);
+                background-color: deeppink;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h2>animaition - 2</h2>
+    <div class="box"></div>
+</body>
+
+</html>

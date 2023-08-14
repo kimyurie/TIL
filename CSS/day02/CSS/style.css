@@ -1,0 +1,23 @@
+
+div {
+    background-color: hotpink;
+    border: 3px solid #0000ff;
+    margin-bottom: 20px;
+}
+
+/* 
+p.none => p태그이면서 클래스가 none
+p, .none => p태그와 클래스가 none
+p .none => p태그의 자손(자식, 손자 포함)중 클래스가 none
+p > .none => p태그의 자식만 선택하여 그 중 클래스가 none
+ */
+
+p.none{
+    /* display: none;  */ /* none은 내용하고 그 구역도 함꼐 사라짐 */
+    display: block;
+}
+
+p.hidden{
+    /* visibility: hidden; */ /* hidden은 내용만 사라지고 구역은 그대로*/
+    visibility: visible;
+}

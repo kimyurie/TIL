@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banner</title>
+    <style>
+        /*glboal*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /*common*/
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /*banner*/
+        .banner-box {
+            width: 1080px;
+            border: 1px solid #000;
+            margin: 1rem auto;
+            overflow: hidden;
+            /*ㄴ 넘어가있는 거 안보이게 하는 기능*/
+        }
+
+        .banner-item {
+            min-width: 100%;
+            height: 300px;
+            background-color: red;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .banner-list>li:nth-of-type(2) {
+            background-color: blue;
+        }
+
+        .banner-list>li:nth-of-type(3) {
+            background-color: green;
+        }
+
+        /*shade*/
+        #shade-banner>ul {
+            width: 100%;
+            height: 300px;
+            position: relative;
+        }
+
+        #shade-banner>ul>li {
+            position: absolute;
+            /*ㄴ 1,2,3 겹치는 기능이 absolute! */
+            transition: opacity 2s;
+        }
+
+        #shade-banner>ul>li:nth-of-type(1) {
+            z-index: 300;
+            /*ㄴ 겹쳐있는 애들 우선순위 줄 수 있는 속성이 z-index*/
+        }
+
+        #shade-banner>ul>li:nth-of-type(2) {
+            z-index: 200;
+        }
+
+        #shade-banner>ul>li:nth-of-type(3) {
+            z-index: 100;
+        }
+
+        /*sldie*/
+        #slide-banner>ul {
+            width: 100%;
+            display: flex;
+            transition: transform 2s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Banner</h2>
+    <!--shade banner -->
+    <div id="shade-banner" class="banner-box">
+        <ul class="banner-list">
+            <li class="banner-item flex-center">1</li>
+            <li class="banner-item flex-center">2</li>
+            <li class="banner-item flex-center">3</li>
+        </ul>
+        <div>
+            <button class="shade-prev-btn">prev</button>
+            <button class="shade-next-btn">next</button>
+        </div>
+    </div>
+    <!-- slide banner-->
+    <div id="slide-banner" class="banner-box">
+        <ul class="banner-list">
+            <li class="banner-item flex-center">1</li>
+            <li class="banner-item flex-center">2</li>
+            <li class="banner-item flex-center">3</li>
+        </ul>
+        <div>
+            <button class="slide-prev-btn">prev</button>
+            <button class="slide-next-btn">next</button>
+        </div>
+    </div>
+    <marquee>안녕하세요</marquee> <!-- ㄴ얘 크기만큼 왼쪽으로 쭈욱 가는 태그로 배너와 비슷하당-->
+
+
+    <script>
+        //shade
+        let shadeBannerIndex = 0; // ㄴ 다음버튼을 누를때마다 인덱스 번호가 1씩 증가
+        const $shadebanner = document.querySelectorAll('#shade-banner > ul > li'); // ㄴ 1,2,3번 가져오깅
+        const $shadebannerPrevBtn = document.querySelector('.shade-prev-btn'); // ㄴ 이전 버튼
+        const $shadebannerNextBtn = document.querySelector('.shade-next-btn'); // ㄴ 다음 버튼
+
+        // ㄴ 다음 버튼을 누를 때마다 li 1 투명해지게 만들깅
+        // ㄴ 이전버튼 함수 동작(인덱스 번호 사용)
+        function prevShadeBanner() {
+            if (shadeBannerIndex <= 0) {
+                shadeBannerIndex = $shadebanner.length - 1; // ㄴ길이 - 1 = 맨뒤 인덱스로 바꿈 
+            } else {
+                shadeBannerIndex--;
+            }
+            for (let item of $shadebanner) {
+                item.style.opacity = 0; // ㄴ 전부다 투명하게 만들깅
+            }
+
+            /*  위 for문 대신 forEach 써도 됌!
+            $shadebanner.forEach((item, index, arr) => {
+                item.style.opacity = 0;
+            })
+            */
+
+            $shadebanner[shadeBannerIndex].style.opacity = 1;  //ㄴ 보여야하는 인덱스에 있는 shadbanner의 투명도만 1이 되고 나머지는 0이 된다!
+        }
+
+        // ㄴ 다음버튼 함수 동작(인덱스 번호 사용)
+        function nextShadeBanner() {
+            if (shadeBannerIndex >= $shadebanner.length - 1) { // ㄴ 마지막 인덱스보다 크면
+                shadeBannerIndex = 0; // ㄴ처음으로 돌아가야함
+            } else {
+                shadeBannerIndex++;
+            }
+
+            $shadebanner.forEach((item, index, arr) => {
+                item.style.opacity = 0;
+            });
+
+            $shadebanner[shadeBannerIndex].style.opacity = 1;
+        }
+
+        $shadebannerPrevBtn.addEventListener('click', prevShadeBanner);
+        $shadebannerNextBtn.addEventListener('click', nextShadeBanner);
+
+        /*
+        p.s
+        무한 슬라이드 배너 cloneNode
+        자동 슬라이드 배너 setInterval
+        */
+
+        // slide banner
+        let slidebannerIndex = 0;
+        const $slidebanner = document.querySelector('#slide-banner > ul');
+        const $slidebannerItem = document.querySelectorAll('#slide-banner > ul > li'); // 마지막 인덱스 찾기 위해 (length - 1)
+        const $slidebannerPrevBtn = document.querySelector('.slide-prev-btn');
+        const $slidebannerNextBtn = document.querySelector('.slide-next-btn');
+        const $slidebannerWidth = $slidebanner.offsetWidth; // ㄴ 슬라이드 배너 길이 가져오는 속성
+
+        function prevSlideBanner() {
+            // ㄴ 버튼눌릴시 0일때 뒤로감
+            if (slidebannerIndex <= 0) {
+                slidebannerIndex = $slidebannerItem.length - 1;
+            } else {
+                slidebannerIndex--;
+            }
+
+            // ㄴ translate 이용해 item의 가로길이 만큼 옮겨야함
+            $slidebanner.style.transform = `translateX(-${$slidebannerWidth * slidebannerIndex
+                }px)`;
+        }
+
+        function nextSlideBanner() {
+            // ㄴ 예외상황 마지막 인덱스 나왔을 때
+            if (slidebannerIndex >= $slidebannerItem.length - 1) { // ㄴ 마지막 인덱스보다 커지면
+                slidebannerIndex = 0; //ㄴ 다시 맨앞으로 돌려보냄
+            } else {
+                slidebannerIndex++;
+            }
+
+            $slidebanner.style.transform = `translateX(-${$slidebannerWidth * slidebannerIndex
+                }px)`; //ㄴ 왼쪽으로 가든 오른쪽으로 가든 인덱스 번호만큼 움직이므로 - 써도 상관없음
+        }
+
+        $slidebannerPrevBtn.addEventListener('click', prevSlideBanner);
+        $slidebannerNextBtn.addEventListener('click', nextSlideBanner);
+
+
+        //  ㄴ 위처럼 기명함수로 준 이유? 아래처럼 재사용하기 위해서 
+
+        setInterval(nextSlideBanner, 3000);
+    </script>
+</body>
+
+</html>

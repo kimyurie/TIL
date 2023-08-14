@@ -1,0 +1,19 @@
+ul a{
+    text-decoration: none;
+}
+
+ul > a{
+    color: deeppink
+}
+
+ul > li > p > a{
+    color:darkviolet
+}
+
+ul li a {
+    color: red;  /* p태그 썼으므로 구글에 적용 안됨 -> div로 바꿔주면 적용가능*/
+}
+
+ul li > p > a{
+    color:blue;
+}

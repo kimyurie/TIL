@@ -1,0 +1,165 @@
+
+DOM API (ㄴ dom은 태그)
+(Document object Model) 문서 객체 모델
+흔히 HTML에서 사용하는 div, span, input과 같은 요소들을 DOM이라고 한다.
+
+(Apllication Programing Interface) API
+응용 프로그램(소프트웨어) 사이에서 통신에 사용되는 언어와 메세지를 이야기합니다.
+
+--------------------------------------------------------------------------
+
+DOM Selector
+
+<div 속성키 = 속성값> 
+
+1. document.getElmentById()
+2. document.getElmentsByClassName()
+
+    ex)
+        <ul id="menu">
+            <li class="menu-item"></li>
+            <li class="menu-item"></li>
+            <li class="menu-item"></li>
+            <li class="menu-item"></li>
+        </ul>
+        
+    const $menu = document.getElmentById("menu");
+    console.log($menu);
+    // <ul></ul>
+
+    const &menuItem = document.getElmentsByClassName("menu-item");
+    console.log($menuItem);
+    [<li>, <li>, <li>, <li>]; // ㄴ 배열형태로 반환
+    [<li>]// ㄴ 하나여도 열형태로 반환
+    console.log($menuItem[0])
+    console.log($menuItem.length) // 4
+
+
+3. document.qureySelector();
+4. document.qureySelectorAll();
+
+    *인자로 css 선택자를 전달받음
+
+ex) document.qureySelector("#menu");
+    document.qureySelector(".menu-item"); // ㄴ가장 먼저 발견한 거 반환
+
+    document.qureySelectorAll(".menu-item");
+    // 배열을 반환
+
+5. document.getElmentsByTagName()
+6. document.getElmentsByName()
+   // ㄴ둘 다 여러개이므로  // 배열
+
+// ㄴ단일객체 getElmentById, qureySelector 빼고 다 배열형태로 반환받음
+--------------------------------------------------------------------------
+
+properties (속성) ㄴ 외울필요 없음 
+
+자바스크립트를 이용하는 변경하는 속성 중 가장 자주 사용하는 속성
+
+value
+innerText
+innerHTML
+style
+classList
+onclick
+onchnage
+onmouseover
+onmouseleave
+onKeydown
+
+--------------------------------------------------------------------------
+
+attribute (속성)
+    setAttribute("속성명", 속성값) - 설정
+    getAttribute("속성명") - 조회
+    removeAttribute("속성명") - 삭제
+
+--------------------------------------------------------------------------
+
+addEventListener
+    addEventListener은 이벤트를 등록하는 가장 권장되는 방식
+    이 방식을 이용하면 하나의 요소에 여러개의 이벤트 핸들러를 등록할 수 있음
+
+    ex)
+    요소명(혹은 window).addEventListener("이벤트명", 콜백함수, options)
+
+    function add(){}                
+    document.getElmentById("seongyong").addEventListener("click", ()=>{ console.log(seongyong) }, true )
+    // options(캡쳐링 유무)의 경우 default가 false이므로 false일 경우는 생략
+
+    자주 사용하는 이벤트명
+
+    click - 요소를 클릭했을 때
+    mouseover - 요소에 마우스를 올렸을 때
+    mouseleave - 요소에서 마우스가 떠났을 때
+    mousedown - 요소를 누르고 마우스를 아직 때기 이전 상태
+    mouseup - 요소를 누르고 마우슬 땐 상태, 땠을 때 마우스 위치가 요소 위에 있어야함
+    mousemove - 마우스가 움직일 때마다
+    mousewheal -  마우스 휠이 이동되었을 때
+    focus - 활성화 되어있을 때
+    blur - 포커스에서 벗어났을 때
+    keypress - 키를 누른 순간
+    keyup - 키를 누르고 있다가 땐 순간
+    keydown - 키를 누르고 때기 이전인 순간
+    change  - 폼필드의 속성이 변경되었을 때
+    
+    * form field
+    <input /> ... type
+    <select>
+    <button>
+
+    -- window, body(반드시는 아님) --
+    load - 웹 페이지가 켜졌을 때
+    * resize - 웹 페이지의  사이즈가 조정되었을 때, 반응형 웹에서 굉장히 중요
+    scroll - 스크롤바의 움직임이 생겼을 때, 스크롤 할 때
+    unload - 페이자가 닫혔을 때
+
+--------------------------------------------------------------------------
+
+**면접 질문으로 많이 나옴!
+
+    캡쳐링, 버블링
+
+    버블링 (ㄴ자식-> 부모)
+    한 요소에 이벤트가 발생하면, 이벤트 핸들러(ㄴ온클릭 같은거) 작동, 이어서 부모 요소의
+    핸들러가 동작
+    버블링은 하위 요소의 이벤트가 부모 요소의 이벤트로 전파되는 것을 말함
+
+    캡쳐링(ㄴ버블링의 정반대 개념) (ㄴ부모-> 자식)
+    이벤트가 하위 요소로 전파되는 단계, 버블링과 반대, 캡쳐링은 기본 옵션 false
+    addEventListener의 옵션으로 true로 만들어 줄 수 있다. 
+
+--------------------------------------------------------------------------
+    
+    이벤트 전파 방지
+
+    event.preventDefault();
+        html에서 a태그나 submit태그는 고유의 동작이 있음
+        페이지를 이동시킨다거나, form 안에 데이터를 전송하거나
+        기본 동작의 성질을 막는 역할
+
+        ex)
+        form의 특징 submit이 되면?
+        action 실행 ( 백엔드주소 )
+
+
+    event.stopPropagation(); (ㄴ버블링과 관련)
+        이벤트가 상위 요소에 전달되지 않게 막아주는 역할
+
+--------------------------------------------------------------------------
+
+    classList
+        해당 요소가 가지고 있는 클래스의 목록
+
+        classList.contain("클래스명")   / ㄴ 문제힌트
+            해당 class가 있는지 없는지 여부를 판단하여 Boolean 형태로 반환
+        
+        classList.add("클래스명")
+            해당 요소에 인자로 전달된 클래스를 추가한다
+
+        classList.remove("클래스명")
+            해당 요소에 인자로 전달된 클래스를 제거한다
+
+--------------------------------------------------------------------------
+

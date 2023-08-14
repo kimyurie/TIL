@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform</title>
+    <style>
+        p {
+            width: 400px;
+            padding: 15px;
+            border: 3px solid #000080;
+        }
+
+        #trans1 {
+            background-color: #ff1493;
+            /* transform: translate(32px, 32px); */
+            /*우측, 아래쪽으로 32px*/
+            /* translate(x, y) */
+        }
+
+        #trans1:hover {
+            transform: translate(32px, 32px);
+        }
+
+        #trans2 {
+            background-color: #7fffd4;
+            /* transform: rotate(60deg); 오른쪽으로 60도 회전 */
+            /* transform: rotateX(180deg);  안에 내용물 x축 기준 회전*/
+            /* transform: rotateY(180deg);  */
+            transition: all 2s;
+            /* 변형되는데 2초 걸림 */
+        }
+
+        #trans2:hover {
+            transform: rotateY(180deg);
+        }
+
+        #trans3 {
+            background-color: #87ceeb;
+            transform: scale(1.5);
+            /*기본크기의 1.5배 커진다*/
+            transform: scale(1.5, 1.2);
+            /* x축, y축 다르게 설정 가능 */
+        }
+
+        #trans3:hover {
+            transform: scale(3);
+        }
+
+        #trans4 {
+            background-color: #ffd700;
+            transform: skew(30deg, 180deg);
+            /* x축 30도, y축 180도 경사 */
+            /* y축 경사는 뒤로 넘겨버림 */
+        }
+
+        .gradient1 {
+            background: linear-gradient(to right, transparent 90%, #ff0000);
+            /* 투명하게 시작해서 오른쪽으로 점점 빨간색으로 바꿈 , 투명 90 빨간 10 비율로 */
+            background: linear-gradient(to bottom left,
+                    transparent,
+                    #ff0000);
+            background: linear-gradient(red,
+                    orange,
+                    yellow,
+                    green,
+                    blue,
+                    navy,
+                    violet);
+        }
+
+        .gradient2 {
+            background: radial-gradient(#ff0000, transparent);
+        }
+
+        .blur>div {
+            width: 200px;
+            height: 200px;
+            background-color: #fff;
+            backdrop-filter: blur(50px);
+        }
+    </style>
+</head>
+
+<body>
+    <h2>transform</h2>
+    <p>original</p>
+    <p id="trans1">translate</p>
+    <!-- 이동 -->
+    <p id="trans2">rotate</p>
+    <!--회전-->
+    <p id="trans3">scale</p>
+    <!--확대, 축소-->
+    <p id="trans4">skew</p>
+    <!--경사-->
+    <p class="gradient1">gradient</p>
+    <p class="gradient2">gradient</p>
+    <div class="blur"></div>
+</body>
+
+</html>

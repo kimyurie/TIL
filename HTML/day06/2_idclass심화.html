@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>id/class 심화</title>
+    <style>
+        div.helloBox>p.hello {
+            /* class를 지정할 때 앞에 태그나 다른 선택자를 붙여서 
+            집단 내에서도 명확한 대상을 따로 지정할 수 있다*/
+            /* 대상이 명확할 수록 같은 우선순위에서는 우선순위가 높다 */
+            color: red;
+        }
+
+        p.hello {
+            /* p태그이면서 class hello인 애들만*/
+            color: blue;
+            font-size: 32px;
+            /* 만약에 font-size를 주지 않는다면 폰트의 기본 크기는? 16px */
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+    <div class="hello">1. 안녕하세요 저는 김유리입니다.</div>
+    </p>
+
+    <div>
+        <p class="hello">2. 안녕하세요 저는 김유리입니다.</p>
+    </div>
+
+    <div class="helloBox">
+        <p class="hello">3. 안녕하세요 저는 김유리입니다.</p>
+    </div>
+</body>
+
+</html>

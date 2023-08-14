@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bubble</title>
+</head>
+<style>
+    body * {
+        margin: 10px;
+        border: 1px solid #00f;
+    }
+</style>
+
+<body>
+    <div class="DIV1">
+        DIV1
+        <div class="DIV2">
+            DIV2
+            <div class="DIV3">DIV3</div>
+        </div>
+    </div>
+    <button>div 추가</button>
+    <script>
+        const divs = document.querySelectorAll('div');
+
+        const onClickDiv = (e) => {
+            e.stopPropagation(); //ㄴ 버블링방지
+            //console.log(e); // ㄴ 버블링 발생 확인
+            console.log(e.currentTarget.className); //ㄴcurrentTarget은 이벤트가 정확하게 일어난 객체
+            // 겹쳐있는 요소에서 event가 일어난 객체를 가지고 올 때는 currentTarget
+            // 아니면 그냥 target
+        };
+
+        for (let div of divs) {
+            div.addEventListener('click', onClickDiv); //ㄴthis를 굳이 안써줘도 e에 이벤트 일어난게 들어옴
+            // ㄴthis이해 위해 login.html 에서 this 설명 보기
+        }
+
+
+        // ㄴ콜백함수의 원리 설명
+        //ㄴ  addEventListener(type, action){ // ㄴ여기서 action이 onCLickDiv이고 this가 e이다.
+        //     action(this);
+        // }
+
+
+
+            // const arr = [1,2,3,4,5]
+            // arr , map ,set
+    </script>
+</body>
+
+</html>

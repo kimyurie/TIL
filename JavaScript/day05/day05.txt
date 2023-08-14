@@ -1,0 +1,171 @@
+
+
+배열 객체는 왜 const로 만들었는데도 값 수정이 가능하지?
+자바스크립트로 메모리 저장 방식
+
+힙 : 값 할당이 이루어지는 곳
+콜 스택 : 힙에 저장된 객체를 참조하여 호출된 함수의 정보를 저장하고 실행하는 곳
+
+힙에는 객체(object)가 저장
+콜스택에는 원시 타입 데이터가 저장
+
+1. 원시 타입 데이터 저장 방식
+- 원시 타입이므로 콜스택에 값이 바로 저장
+- 변수에는 콜스택(렉시컬 환경) 메모리 주소값이 저장
+
+
+2. 참조 타입 데이터 저장 방식
+- 배열, 객체, 함수 등은 참조 타입이므로 메모리 힙에 저장된다.
+- 참조타입 데이터가 저장된 메모리의 주소 값을 콜스택에 저장
+- 변수에는 메모리 힙의 주소값이 저장
+
+
+let obj = {}
+let obj2 = obj
+
+obj === obj2 // true
+
+얕은 복사
+값을 복사하여 할당했을 때 같은 메모리 주소를 가리키는 것
+
+깊은 복사
+얕은 복사와 달리 주소를 복사해서 공유하는 것이 아니라 아예 새로운 주소에 값을 저장하고
+해당 주소를 가리키는 것
+
+-----------------------------------------------------------------------------------------------
+
+Number
+    new Number(123);
+    123;
+
+    new Number("str");
+    NaN;
+
+    Number.MAX_VALUE // 자바스크립에서 사용 가능한 수중 가장 큰 숫자(1.7e+308), INFINITY
+    Number.MIN_VALUE // 자바스크립에서 사용 가능한 수중 가장 적은 숫자, 0에 가장 가까움
+    Number.isFinit() : boolean 유한수인지
+    Number.prototype.toString(3) : 문자열 변환
+
+* Math
+
+    * Math.min(a,b...z) 최댓값
+    * Math.max(a,b...z) 최솟값
+    Math.random() 0 ~ 1 사이의 무작위 숫자 반환
+    * Math.round(a) 소수점 첫번째 자리에서 반올림
+    * Math.floor(a) 소수점 이하 버림
+    * Math.ceil(a) 소수점 이하 올림
+    * Math.abs(a) a의 절댓값
+    Math.sqrt(a) a의 제곱근
+    Math.cbrt(a) a의 세제곱근
+    Math.log(a) a의 자연로그
+    ....
+    Mat.pow, log2, sign..
+
+
+String
+    String.lenght() : 문자열 길이
+    String.prototype.charAt(index) 
+                    .concat()
+                    .indexOf()
+                    .replace('a', 'b') // a라는 문자를 b로 바꾸는 것
+
+    ex) "Hello".replace("e","o") // Hollo
+               .replace(정규 표현식가능, 바꿀 문자)
+
+                    .toLowerCase();
+                    .toUpperCase();
+                    .split();
+                    .repeat(n);
+    
+    String.prototype.charAt
+                    ex) const a = "Hello"       
+                    "Hello".charAt(0); // 첫번째 글자 = H 가 나옴
+                    a.charAt(0); // H
+
+    String.prototype.concat
+    String.prototype.indexOf
+                    ....
+
+
+* Date (날짜)
+Date 생성자 함수는 날짜와 시간을 가지는 인스턴스를 생성하는 빌트인 함수
+* 로컬 컴퓨터 환경 시간 기준 (따라서 각 컴퓨터마다 시간이 다 다를 수 있다) // momentJS , dayJS
+
+new Date()
+현재 날짜와 시간을 가지는 인스턴스
+만약 () 파라미터로, 올바른 포멧의 시간을 전달하면 해당 시간의 인스턴스 생성
+
+const date = new Date();
+console.log(date); // Thu May is 2022 17:16:13.. (한국 표준시)
+
+const date = new Date(2022, 11)
+console.log(date) // 요일 12월 01 2022 00:00:00
+                  
+                  ㄴ 여기 머 메모 수정해놓기
+                     (2022, 11, 15, 18, 30, 20)
+                     // 요일 12월 15 2022 18:30:20
+                     ("2022/12/15/18:30:20")
+
+-----------------------------------------------------------------------------------------------
+나머지 매개변수
+ex) ... rest
+
+function a(number, ...rest){
+    return {number, rest} // ㄴnumber:number , rest:rest 키랑 값이 같으면 생략 가능
+}
+
+console.log(a(5, 4, 3, 2, 1)); 
+-----------------------------------------------------------------------------------------------
+정규표현식(Regular Expression) rgexp    ㄴ 그냥 참고로만! 쓸때가 회원가입 , 로그인 말고 거의 없
+
+문자열에서 특정 내용을 찾거나 대체 또는 발췌하는데 사용
+주로 사용하는 것은 유효성 검사
+ex) 이메일 형식, 핸드폰 번호 "-"를 넣어주세요,
+   비밀번호에 대소문자 및 특수문자를 넣어주세요
+
+규칙
+i (IgnoreCase) 대소문자 구별x
+g (Global) 모든 문자 검사
+m (Multi Line) 문자열의 행이 바뀌더라도 검색을 계속한다
+
+ex) 
+const str = "This is a pen"
+
+const rgexp = /is/ig;
+rgexp.test(str) // boolean (true)
+
+1. 특정단어로 시작
+    const rgexp = /^http/;
+
+2. 특정단어로 끝나는지
+    const rgexp = /html$/;
+
+3. 숫자인지
+    const rgexp = /[0~9]/ 
+    const rgexp = /[^a-z]/
+
+
+4. 메일 주소 형식인지
+    const regexr = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+    str.include("@");
+
+5. 핸드폰 번호 형식인지
+    const rgexp = /^\d{3}-\d{3,4}-\d{4}$/;
+
+6. 특수문자 포함되어 있는지
+    const rgexp = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi;
+
+
+// ㄴ외우지 마센 강사님도 구글링 해서 쓴ㄴ댕
+
+-----------------------------------------------------------------------------------------------
+동료학습
+
+1. 토이퍼블리싱프로젝트(1주)
+2. 오픈api, handmade api 프로젝트(1-2주) -> 배포
+
+커밋로그, 커밋메시지(컨벤션) -> 다음주중에 플로우 나올것
+리드미 정리
+
+12월 플로우는 거의 프로젝트 !
+

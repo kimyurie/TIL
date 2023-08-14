@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            margin: 30px;
+            border: 1px solid #222;
+        }
+
+        #bg_tr {
+            /* transition: background-color linear 2s; */
+            /* transition: border linear 2s; */
+            transition: all linear 2s 1s;
+            /*1s는 변형 시작되기 전 1초 대기*/
+            /* 축약형 */
+            transition: all 2s;
+            /* property, duration */
+            transition: all linear 2s;
+            /*  property, timing, duration */
+
+            /* 
+                transition-property: all;
+                transition-timing-function: linear;
+                transition-duration: 2s;
+                transition-delay: 1s;
+            */
+        }
+
+        #bg_tr:hover {
+            background-color: #ffff00;
+            border: 5px dotted #ff0000;
+        }
+
+        #border_tr {
+            background-color: #ff0000;
+            transition: all ease-out 2s;
+            /* ease-out은 변하는 속성의 주기 */
+        }
+
+        #border_tr:hover {
+            background-color: #ffff00;
+            border: 5px dotted #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>transition -1</h2>
+    <div id="bg_tr"></div>
+    <div id="border_tr"></div>
+</body>
+
+</html>

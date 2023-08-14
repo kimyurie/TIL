@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 배경 1</title>
+    <style>
+        div {
+            width: 80%;
+            padding: 20px;
+        }
+
+        #color {
+            background-color : royalblue;
+            color: #fff;
+            border: 5px solid silver;
+        }
+
+        .image{
+            height: 600px;
+            background-image: url(./img/1.jpg);
+            background-repeat: no-repeat;  
+            /* 
+                repeat (repeat-x :x방향 , repeat-y: y 방향) 기본값 
+                no-repeat : 반복하지 않음
+            */ 
+            background-size: contain;
+            border: 5px dotted hotpink; /* 네 방향 전체 */ /* px은 두께를 나타냄*/
+            /* border-top, border-bottom 방향 설정 가능*/
+        }
+    </style>
+</head>
+<body>
+    <h2>CSS배경1</h2>
+    <div id="color">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quae nobis
+         asperiores. Error laborum, dicta beatae tempora adipisci ullam veritatis at
+          quaerat aspernatur, iste ad fuga assumenda molestias harum explicabo?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo asperiores maxi
+    </div>
+    <div class="image">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quae nobis
+         asperiores. Error laborum, dicta beatae tempora adipisci ullam veritatis at
+          quaerat aspernatur, iste ad fuga assumenda molestias harum explicabo?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo asperiores maxi
+    </div>
+</body>
+</html>

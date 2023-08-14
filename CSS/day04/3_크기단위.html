@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>크기 단위</title>
+    <style>
+        .em {
+            font-size: 2em;
+            /* 1em = 16px */
+        }
+
+        .rem {
+            background-color: #0000ff;
+            width: 32rem;
+            /* 16px x 32 => 32px x 32 */
+            font-size: 16px;
+        }
+
+        html {
+            font-size: 32px;
+        }
+
+        #container {
+            width: 500px;
+            height: 300px;
+            background-color: #7fffd4;
+            overflow: hidden;
+            /* 넘어간게 안보이는 상태*/
+            /* overflow: auto는 스크롤 상태 */
+        }
+
+        #container>div {
+            margin-bottom: 0.5rem;
+        }
+
+        .box {
+            width: 10%;
+            height: 10%;
+            background-color: #8a2be2;
+        }
+
+        .mediumbox {
+            width: 20%;
+            height: 20%;
+            background-color: #6495ed;
+        }
+
+        #bigbox {
+            width: 30%;
+            height: 30%;
+            background-color: #a52a2a;
+        }
+
+        /**/
+
+        #container_2 {
+            width: 100px;
+            height: 16px;
+        }
+
+        #progress {
+            width: 70%;
+            height: 16px;
+            background-color: #0000ff;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>em</h2>
+    <div style="font-size: 32px">
+        <!--부모가 바뀌면서 1em = 32px 이 됌-->
+        <p class="em">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+            dicta quisquam repellendus enim quasi quae aliquam ut non dolor?
+            Temporibus totam laborum cum molestias autem! Reiciendis iure
+            sint dignissimos esse?
+        </p>
+    </div>
+
+    <h2>rem</h2>
+    <div class="rem">
+        <!-- 1rem = 32px-->
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. In placeat
+        fuga ducimus natus nihil, quos, sed sapiente non dolore dignissimos
+        omnis est iure laboriosam modi molestias et pariatur? Veritatis,
+        non.
+    </div>
+
+    <h2>per</h2>
+    <div id="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="mediumbox"></div>
+        <div class="mediumbox"></div>
+        <div id="bigbox"></div>
+    </div>
+
+    <div id="container_2">
+        <div id="progress">70%</div> <!-- html에도 줬기 때문에 기본 폰트 크기 커짐-->
+    </div>
+
+
+</body>
+
+</html>

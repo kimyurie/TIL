@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미디어쿼리 - 1</title>
+    <style>
+        /* 1024보다 커지면 밑에 애(기본값)가 적용! */
+        body {
+            background-color: #ffd700;
+            color: #0000ff;
+            font-size: 32px;
+            /*기본 폰트 크기 16px*/
+        }
+
+        /* 768 ~ 1024px */
+        @media screen and (min-width: 768px) and (max-width:1024px) {
+            body {
+                background-color: #f0ffff;
+                color: #708090;
+                font-size: 20px;
+            }
+        }
+
+
+        /* 480 ~ 767px */
+        /* @media screen and (min-width: 480px) and (max-width:767px) {
+            body {
+                background-color: #000;
+                color: #ff0000;
+                font-size: 16px;
+            }
+        } */
+
+        /* 0 ~ 479 */
+        @media screen and (max-width:479px) {
+            body {
+                background-color: #0000ff;
+                color: #fff;
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h2>미디어쿼리 - 1</h2>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollit
+        ia quod ea unde odit illo? Vitae, perferendis quo corrupti
+        voluptatum cum earum porro nesciunt nam soluta, aut pariatur
+        at quia quos.
+    </p>
+</body>
+
+</html>

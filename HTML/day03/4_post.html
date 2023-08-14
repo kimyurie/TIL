@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 등록</title>
+</head>
+<body>
+    <!-- 단일태그와 단일태그가 아닌 것의 차이점 
+        일반태그(내용물이 있음)
+
+        <태그명 속성="값"> ... (내용물) </태그명>
+        ex) <div></div>, <p></p>, <span></span> ...
+
+        단일태그(내용물이 없음)
+        <img/>
+        <input/>
+    -->
+
+    <!--
+            enctype 속성
+            기본값은 application/x-www-form-urlencoded
+
+            multipart/form-data
+            : 모든 문자를 인코딩하지 않음을 명시함
+            이 방식은 보통 문자열이 아닌 파일이 있을 경우 즉 이미지나 파일을 서버에 전송할 때 주로 사용
+
+            form 태그가 아닌 상태에서 이미지를 전송해야 할 떄
+
+            *
+            let formData = new formData() <-- 이러한 상태를 임의로 생성해서
+            해당 상태에 데이터를 실어서 백엔드에 전송
+
+            ==> form이든 아니든 이미지를 보낼 때는 다른 형식으로 보내야하고 보내는 방법 없다
+            이미지, 동영상, 파일은 문자 데이터가 아니기 떄문에 인코딩이 불가 따라서 다른 방법이 존재
+    -->
+    <form enctype="multipart/form-data">
+        <p>글제목<input type="text" maxlength="13" size="30" value="김유리"/></p>
+        <p>작성날짜<input type="date"/></p>
+        <p>
+            내용
+            <textarea cols="10" rows="10"><!-- value(텍스트 에어리어의 값)--></textarea>
+        </p>
+        <p>파일 첨부 <input type="file"/></p>
+        <div>
+            <button type="submit">등록</button>
+            <button type="reset">초기화</button>
+        </div>
+    </form>
+</body>
+</html>
