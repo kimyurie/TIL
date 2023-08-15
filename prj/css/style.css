@@ -2,15 +2,15 @@
 ul{list-style: none;}
 a{text-decoration: none;}
 
-.header{background-color: #00AFFF;}
-.inner{display: flex; justify-content: space-between; align-items: center;}
-.header .inner .logo{color: white; font-family: 'Tilt Prism', cursive;}
+.header{background-color: white; }
+.inner{height: 70px; display: flex; justify-content: space-between; align-items: center;}
+.header .inner .logo{color: #00AFFF; font-family: 'Tilt Prism', cursive; margin-left: 40px;}
 .header .inner ul{display: flex;}
-.header .inner ul a {padding: 0 30px; color: #B9E2FA; font: bold 16px/50px 'inherit'; position: relative;}
+.header .inner ul a {padding: 0 30px; color: #8fdbff; font: bold 16px/50px 'inherit'; position: relative;}
 
 .header .inner ul a::before{
     content: attr(data-menu);
-    color: white;
+    color: #00AFFF;
     width: 100%; max-width: 0%;
     position: absolute;
     transition: 0.8s;
@@ -21,24 +21,32 @@ a{text-decoration: none;}
     max-width: 100%;
 }
 
-.content{width: 85%; margin: 0 auto;}
+
 h2{color: #3a3a3a; font: bold 20px/ 50px 'inherit'; white-space: wrap;}
 hr{border: solid 0.01px #807e7e;}
-.main_img .pic { width: 100%; height: 100%;}
-.movie_content {display: flex; justify-content: space-between; margin: 10px;}
+.main_img {
+    background-image: url('../img/main_img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 40%;
+    height: 550px; 
+} 
+.main_img .main_img_inner {
+    width: 40%; 
+    margin-left: 2rem;
+    padding-top: 24%;
+}
+
+.main_img h2,div {color: white;}
+
+.content{width: 85%; margin: 0 auto;}
+.movie_content {display: flex; justify-content: space-around; margin-top: 10px; margin-left: 40px;}
 .content .box{width: 100%;}
 .content .box img {height: 320px;}
-.content .movie_content .movie_title {
-}
+.content .movie_content .movie_title {color:#3a3a3a;}
 table {margin: 0 auto; border-collapse: collapse}
 table tr td{padding: 16px 24px; font-size: 14px; color: #4f4e4e;}
 
-#button{
-    display: flex;
-    justify-content: center;
-}
+#button{display: flex; justify-content: center;}
 
-#more_button[type] {
-    color: white;
-    background-color: #bcbaba;
-}
+#more_button[type] {color: white; background-color: #bcbaba;}
