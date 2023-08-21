@@ -1,0 +1,8 @@
+*{margin: 0; padding: 0; box-sizing: border-box;}
+ul,li{list-style: none;}
+a{text-decoration: none; display: block;}
+
+.inner{display: flex; justify-content: space-between; align-items: center; margin: 25px 35px;}
+.inner .logo a{color: #111;}
+.list{display: flex;}
+.list .menu{margin: 0 20px; color: #aaa8a8;}
