@@ -41,9 +41,10 @@ footer li{text-align: left;}
 .footer_menu > ul:first-child {margin-bottom: 13px;}
 .footer_menu > ul:first-child > li {margin-right: 100px;}
 .footer_menu > ul:last-child > li{margin-right: 160px;}
-.footer_menu > ul:last-child > li:nth-child(3){margin-left: -30px;}
+.footer_menu > ul:last-child > li:nth-child(2){margin-left: -18px;}
+.footer_menu > ul:last-child > li:nth-child(3){margin-left: -25px;}
 
-.sns{display: flex;  font-size: 20px; color: #918f8f; margin-top: 25px;} 
+.sns{display: flex;  font-size: 20px; color: #918f8f; margin-top: 25px; }  
 .sns > li {margin: 10px;}
 input{height: 30px; width: 190px; border: none; padding-left: 15px;}
 button{background-color: rgb(244, 70, 70); color: white; height: 30px;border: none; font-size: 12px; width: 120px;}
