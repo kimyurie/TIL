@@ -9,10 +9,78 @@ a{text-decoration: none; display: block;}
 .list .menu{margin: 0 20px; color: #aaa8a8; font-family: 'Roboto Condensed', sans-serif;}
 
 .section_1{width: 80%; margin-right: 20px; }
-.section_1_1{height: 581px; margin-bottom: 20px; align-items: center; 
+.section_1_1{height: 581px; 
+    margin-bottom: 20px; align-items: center; 
     /* position: relative; */
     background-image: url(../img/main.jpg); 
 }
+
+
+
+ /*common*/
+ .flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*banner*/
+.banner-box {
+    width: 100%;
+    border: 1px solid #000;
+    margin: 1rem auto;
+    /* overflow: hidden; */
+    /*ㄴ 넘어가있는 거 안보이게 하는 기능*/
+}
+
+.banner-item {
+    min-width: 100%;
+    height: 300px;
+    background-color: red;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+
+
+.banner-list>li:nth-of-type(2) {
+    background-color: blue;
+}
+
+.banner-list>li:nth-of-type(3) {
+    background-color: green;
+}
+
+/*shade*/
+#shade-banner>ul {
+    width: 100%;
+    height: 300px;
+    position: relative;
+}
+
+#shade-banner>ul>li {
+    position: absolute;
+    /*ㄴ 1,2,3 겹치는 기능이 absolute! */
+    transition: opacity 2s;
+}
+
+#shade-banner>ul>li:nth-of-type(1) {
+    z-index: 300;
+    /*ㄴ 겹쳐있는 애들 우선순위 줄 수 있는 속성이 z-index*/
+}
+
+#shade-banner>ul>li:nth-of-type(2) {
+    z-index: 200;
+}
+
+#shade-banner>ul>li:nth-of-type(3) {
+    z-index: 100;
+}
+
+
+
+
 .icon{position: absolute; bottom: 40px; left: 380px;}
 .icon > div {margin: 0 20px;}
 .finance_item{width: 600px;}
@@ -50,7 +118,7 @@ footer li{text-align: left;}
 .sns{display: flex;  font-size: 20px; color: #918f8f; margin-top: 25px; }  
 .sns > li {margin: 10px;}
 input{height: 30px; width: 190px; border: none; padding-left: 15px;}
-button{background-color: rgb(244, 70, 70); color: white; height: 30px;border: none; font-size: 12px; width: 120px;}
+.sub_button{background-color: rgb(244, 70, 70); color: white; height: 30px;border: none; font-size: 12px; width: 120px;}
 
 
 
@@ -69,5 +137,3 @@ transition: all 1s ease-in-out;
 width: 750px;
 }
 .hide_menu > div > ul > li {color: #767474;}
-
-
