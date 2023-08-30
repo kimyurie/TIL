@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route, RouterProvider } from 'react-router-dom';
+
+import { ThemeProvider } from 'styled-components';
+import GlobalStyles from './styles/global';
+
+import HomePage from './pages/Home';
+import { TodoPage } from './pages/Todo';
+import theme from './styles/theme';
+import router from './routes/routing';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <RouterProvider router={router} />
+
+      {/* <BrowserRouter>
+        HTML5를 지원하는 브라우저 주소를 감지
+        <Routes>
+          Route path와 감지한 주소가 일치한 router만을 랜더링 시켜주는 역할
+          <Route path="/" element={<HomePage />} />
+          <Route path="/todo" element={<TodoPage />} />
+
+
+        <Route path="/" element={<layout/>}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/todo" element={<TodoPage />} />
+        </Route>
+
+
+        </Routes>
+      </BrowserRouter> */}
+    </ThemeProvider>
   );
 }
-
 export default App;
