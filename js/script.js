@@ -2,7 +2,7 @@
 const $menu = document.querySelector('menu');
 const $hide_menu = document.querySelector('.hide_menu');
 const padding = 64;
-const hideMenuHeight = $hide_menu.offsetHeight; // ㄴ offsetHeight는 요소의 높이
+const hideMenuHeight = $hide_menu.offsetHeight; 
 $hide_menu.style.height= 0;
 
 $menu.addEventListener('mouseover',() => {

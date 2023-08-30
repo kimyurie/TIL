@@ -8,12 +8,7 @@ a{text-decoration: none; display: block;}
 .list{display: flex;}
 .list .menu{margin: 0 20px; color: #aaa8a8; font-family: 'Roboto Condensed', sans-serif;}
 
-.section_1{width: 80%; margin-right: 20px; }
-.section_1_1{height: 581px; 
-    margin-bottom: 20px; align-items: center; 
-    /* position: relative; */
-    background-image: url(../img/main.jpg); 
-}
+
 
 
 
@@ -26,16 +21,15 @@ a{text-decoration: none; display: block;}
 
 /*banner*/
 .banner-box {
-    width: 100%;
+    width: 100%; 
     border: 1px solid #000;
     margin: 1rem auto;
     /* overflow: hidden; */
-    /*ㄴ 넘어가있는 거 안보이게 하는 기능*/
 }
 
 .banner-item {
     min-width: 100%;
-    height: 300px;
+    height: 581px;
     background-color: red;
     font-size: 2rem;
     font-weight: bold;
@@ -53,6 +47,10 @@ a{text-decoration: none; display: block;}
 }
 
 /*shade*/
+#shade-banner {
+    display: flex;
+    height: 581px;
+}
 #shade-banner>ul {
     width: 100%;
     height: 300px;
@@ -61,13 +59,11 @@ a{text-decoration: none; display: block;}
 
 #shade-banner>ul>li {
     position: absolute;
-    /*ㄴ 1,2,3 겹치는 기능이 absolute! */
     transition: opacity 2s;
 }
 
 #shade-banner>ul>li:nth-of-type(1) {
     z-index: 300;
-    /*ㄴ 겹쳐있는 애들 우선순위 줄 수 있는 속성이 z-index*/
 }
 
 #shade-banner>ul>li:nth-of-type(2) {
@@ -79,29 +75,57 @@ a{text-decoration: none; display: block;}
 }
 
 
-
-
+.main_contents{display: flex; justify-content: space-between;
+     height: 100%; align-items: center; background-image: url(../img/desk.jpg); }
 .icon{position: absolute; bottom: 40px; left: 380px;}
-.icon > div {margin: 0 20px;}
-.finance_item{width: 600px;}
-.finance_item > span{background-color: rgb(250, 47, 47); padding: 10px 30px; top: 130px; left: 410px;}
+.icon > div {margin: 0 30px; }
+.finance_item{font-size: 20px;}
+.finance_item > span{background-color: rgb(247, 67, 67); 
+    padding: 10px 30px; position: absolute; left: 340px; top: 115px;}
 .finance_item > span,div,h2{text-align: center; color: #eee;}
 .finance_item >div:first-child{margin-bottom: 45px;}
 .finance_item >div:last-child{margin-top: 20px; width: 75%; margin-left: 65px;}
-.main_contents{display: flex; justify-content: space-between; height: 100%; align-items: center;}
+
+.section_1{width: 75%; margin-right: 20px; }
+.section_1_1{height: 581px;
+    margin-bottom: 20px; align-items: center; 
+    position: relative;
+}
 
 .section_1_2{height: 581px; display: flex;}
-.section_1_2_1{width: 30%; background-color: #e01c1c; margin-right: 20px;}
+.section_1_2_1{width: 30%; background-color: #fcf9f9; margin-right: 20px;}
+.section_1_2_1 > div {color: black; padding: 20px;}
+.section_1_2_1 > div > ul > li {margin: 20px; display: flex;}
+.section_1_2_1 > div > ul > li > h4{color: #767474;}
+.section_1_2_1 > div > ul > li > div {color: black; margin-left: 10px;}
 .section_1_2_2{width: 70%;}
-.section_1_2_2_1{height: 50%; background-color: blue;}
-.section_1_2_2_2{height: 50%; display: flex; margin-top: 20px;}
-.squ_box1{width: 50%; background-color: bisque; margin-right: 20px;}
-.squ_box2{width: 50%; background-color: #aaa8a8;}
+.section_1_2_2_1{height: 50%; background-image: url(../img/wordpress-923188_640.jpg);}
+.section_1_2_2_1 .left_box {width: 200px; }
 
-.section_2{width: 20%;} 
-.section_2_1{height: 274px; margin-bottom: 25px; background-color: #aaa8a8;}
-.section_2_2{height: 581px; margin-bottom: 25px; background-color: yellow;}
-.section_2_3{height: 274px; background-color: teal;}
+.left_box{
+    background-color: rgb(247, 67, 67); 
+    height: 50px; position: relative; font-size: 20px; top: 40px;
+    padding: 10px 20px;
+}
+
+.section_1_2_2_2 .left_box {width: 130px;}
+
+
+.section_1_2_2_1  h4 {text-align: left; width: 450px; padding: 20px;}
+.section_1_2_2_2{height: 50%; display: flex; margin-top: 20px; }
+.squ_box1{width: 50%; background-image: url(../img/home-office-1867759_640.jpg); margin-right: 20px;}
+.squ_box2{width: 50%; background-image: url(../img/apple-1867762_1280.jpg);}
+
+.section_2{width: 25%;} 
+.section_2_1{height: 274px; margin-bottom: 25px; background-image: url(../img/apple-2562204_640.jpg);}
+.section_2_2{height: 581px; margin-bottom: 25px; background-color: rgb(247, 67, 67); 
+    padding: 20px;
+}
+.section_2_2 > h2, div{text-align: left;}
+.section_2_2 > h2 {font-size: 24px;}
+.section_2_2 > div {margin-top: 35px;}
+
+.section_2_3{height: 274px; background-image: url(../img/computer-416569_640.jpg);}
 
 footer{background-color: #111; width: 100%; height: 150px; margin-top: 150px;}
 footer li{text-align: left;}
@@ -118,12 +142,12 @@ footer li{text-align: left;}
 .sns{display: flex;  font-size: 20px; color: #918f8f; margin-top: 25px; }  
 .sns > li {margin: 10px;}
 input{height: 30px; width: 190px; border: none; padding-left: 15px;}
-.sub_button{background-color: rgb(244, 70, 70); color: white; height: 30px;border: none; font-size: 12px; width: 120px;}
+.sub_button{background-color: rgb(247, 67, 67); color: white; height: 30px;border: none; font-size: 12px; width: 120px;}
 
 
 
 
-.hide_menu{display: flex; justify-content: center; }
+.hide_menu{display: flex; justify-content: center;}
 .hide_menu > div {margin: 0 36px;} 
 
 header {position: relative;}
