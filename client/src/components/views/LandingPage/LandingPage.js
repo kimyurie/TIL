@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { FaCode } from "react-icons/fa";
-import { API_KEY, API_URL } from '../../Config';
+import { API_KEY, API_URL} from '../../Config';
 // import { response } from 'express';
 
 function LandingPage() {
 
-    const [Movies, setMovies] = useState([])
+    const [Movies, setMovies] = useState([]); // useState함수 활용해 아래서 가져온 영화 정보 데이터 state에 넣어주기
 
 
     // 영화 정보 가져오기 위해 useEffect 활용
@@ -16,7 +16,7 @@ function LandingPage() {
         fetch(endpoint)
         .then(response => response.json())
         .then(response => {
-            setMovies([response.result])
+            setMovies([response.results])
         })
 
     }, [])
@@ -25,6 +25,7 @@ function LandingPage() {
     return (
         <div style={{width: '100%', margin: '0'}}>
             {/* Main Image */}
+
             <div style={{width: '85%', margin: '1rem auto'}}>
                 <h2>Movies by latest</h2>
                 <hr/>
