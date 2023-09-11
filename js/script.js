@@ -52,3 +52,9 @@ function nextShadeBanner() {
 
 $shadebannerPrevBtn.addEventListener('click', prevShadeBanner);
 $shadebannerNextBtn.addEventListener('click', nextShadeBanner)
+
+
+document.querySelector('.material-symbols-outlined').addEventListener('click', function(){
+    document.querySelectorAll('.list-group')[0].classList.toggle('show');
+})
+

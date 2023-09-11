@@ -100,3 +100,7 @@ header menu {position: absolute; left: 50%; transform: translateX(-50%);}
 
 .hide_menu {position: absolute; top: 30px; overflow: hidden;box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); background-color: #ffffff;transition: all 1s ease-in-out; width: 750px;}
 .hide_menu > div > ul > li {color: #767474;}
+
+.list-group{display: none; color: #4f4e4e;}
+.show{display: block;}
+
