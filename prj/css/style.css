@@ -50,3 +50,13 @@ table tr td{padding: 16px 24px; font-size: 14px; color: #4f4e4e;}
 #button{display: flex; justify-content: center;}
 
 #more_button[type] {color: white; background-color: #bcbaba;}
+
+.mov_dis {
+    display: none;
+    background : rgb(5, 129, 171);
+    width: 230px;
+    height: 300px;
+    position: relative;
+    top: -380px;
+    border-radius: 5px;
+}

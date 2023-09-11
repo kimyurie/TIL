@@ -41,37 +41,49 @@
         <hr>
         <section class="movie_content">
            <div class="box">
-                <div><img src="img/movie1.jpg" alt=""></div>
+                <div class="img_btn"><img src="img/movie1.jpg"></div>
                 <div class="info">
                     <p class="movie_title">Spider-Man: Across the Spider-Verse</p>
                     <a href="./sub.html" class="btn">Take a look</a>
+                    <div>
+                        <div class="mov_dis">
+                            영화 설명
+                        </div>
+                    </div>
                 </div>
            </div>
            <div class="box">
                 <div><img src="img/movie2.jpg" alt=""></div>
                 <div class="info">
                     <p class="movie_title">Transformers: Rise of the Beasts</p>
-                    <a href="#" class="btn">Take a look</a>
+                    <a href='' class="btn">Take a look</a>
                 </div>
            </div>
            <div class="box">
                 <div><img src="img/movie3.jpg" alt=""></div>
                 <div class="info">
                     <p class="movie_title">Barbie</p>
-                    <a href="#" class="btn">Take a look</a>
+                    <a href="" class="btn">Take a look</a>
                 </div>
            </div>
            <div class="box">
                 <div><img src="img/movie4.jpg" alt=""></div>
                 <div class="info">
                     <p class="movie_title">The Flash</p>
-                    <a href="#" class="btn">Take a look</a>
+                    <a href="" class="btn">Take a look</a>
                 </div>
            </div>
         </section>
-        <div id="button">
-            <input id="more_button" type="button" value="Load More">
-        </div>
     </div>
+
+    <script>
+        document.querySelector('.img_btn').addEventListener('mouseover', function(){
+            document.querySelector('.mov_dis').style.display = 'block';
+        })
+
+        document.querySelector('.img_btn').addEventListener('mouseout', function(){
+            document.querySelector('.mov_dis').style.display = 'none';
+        })
+    </script>
 </body>
 </html>
