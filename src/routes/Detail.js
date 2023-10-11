@@ -37,6 +37,25 @@ function Detail(props) {
   }, [])
 
 
+  // 2. 현재 페이지에서 보이는 상품 id 가져와서
+  // 3. localStorage에 watch 항목에 있던 []에 추가
+  useEffect(() => {
+    let 꺼낸거 = localStorage.getItem('watched');
+    // 꺼낸거 json 형태 -> array 형태로
+    꺼낸거 = JSON.parse(꺼낸거)
+    꺼낸거.push(찾은상품.id)
+    
+
+    // 중복 제거
+    // 상품 id가 이미 []에 있으면 추가하지 말아주세요
+    // Set은 array 와 같이 중복을 알아서 제거해주는 array
+    꺼낸거 = new Set(꺼낸거)
+    꺼낸거 = Array.from(꺼낸거)
+
+    localStorage.setItem('watched', JSON.stringify(꺼낸거))
+  }, [])
+
+
   return (
     <div className={"container start " + fade2}>
       <div className="col-md-6">

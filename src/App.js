@@ -3,7 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import data from "./data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes, Link, useNavigate, Outlet } from "react-router-dom";
 import Detail from "./routes/Detail";
 import axios from "axios";
@@ -12,6 +12,16 @@ import Cart from "./routes/Cart";
 function App() {
   let [shoes, setShoes] = useState(data);
   let navigate = useNavigate();
+
+  // 상세페이지 들어가면 현재 페이지에 있는 상품 id를 
+  // localStorage에 저장되게
+
+  // 1. 누가 상세페이지 접속하면
+  // 2. 현재 페이지에서 보이는 상품 id 가져와서
+  // 3. localStorage에 watch 항목에 있던 []에 추가
+  useEffect(() => {
+    localStorage.setItem('watched', JSON.stringify([]))
+  }, [])
 
   return (
     <div>
