@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Route, Routes, Link, useNavigate, Outlet } from "react-router-dom";
 import Detail from "./routes/Detail";
 import axios from "axios";
+import Cart from "./routes/Cart";
 
 function App() {
   let [shoes, setShoes] = useState(data);
@@ -18,9 +19,34 @@ function App() {
         <Container>
           <Navbar.Brand href="#home">Shop</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Cart</Nav.Link>
-            <Nav.Link href="#pricing">Detail</Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              Home
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/cart");
+              }}
+            >
+              Cart
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/detail/1");
+              }}
+            >
+              Detail1
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/detail/2");
+              }}
+            >
+              Detail2
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -47,6 +73,7 @@ function App() {
           <Route path="member" element={<div>멤버들</div>} />
           <Route path="location" element={<div>회사위치</div>} />
         </Route>
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <button
         onClick={() => {

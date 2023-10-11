@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Nav } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import { addItem } from "../store/store";
+import { useDispatch } from "react-redux";
 
 function Detail(props) {
   let { id } = useParams();
@@ -9,6 +11,7 @@ function Detail(props) {
   let [num, setNum] = useState("");
   let [tab, setTab] = useState(0);
   let [fade2, setFade2] = useState('');
+  let dispatch = useDispatch();
 
 
   useEffect(() => {
@@ -46,7 +49,9 @@ function Detail(props) {
         <h4 className="pt-5">{찾은상품.title}</h4>
         <p>{찾은상품.content}</p>
         <p>{찾은상품.price}원</p>
-        <button className="btn btn-danger">주문하기</button>
+        <button className="btn btn-danger" onClick={() => {
+          dispatch(addItem({id : 1, name : 'Red Knit', count : 1} ))
+        }}>주문하기</button>
       </div>
       {box == true ? (
         <div className="alert alert-warning">2초이내 구매시 할인</div>
