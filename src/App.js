@@ -6,9 +6,10 @@ import data from "./data";
 import { useState } from "react";
 import { Route, Routes, Link, useNavigate, Outlet } from "react-router-dom";
 import Detail from "./routes/Detail";
+import axios from "axios";
 
 function App() {
-  let [shoes] = useState(data);
+  let [shoes, setShoes] = useState(data);
   let navigate = useNavigate();
 
   return (
@@ -47,8 +48,24 @@ function App() {
           <Route path="location" element={<div>회사위치</div>} />
         </Route>
       </Routes>
-
-      {/* <button onClick={() => {navigate('/detail')}}>이동버튼</button> */}
+      <button
+        onClick={() => {
+          axios
+            .get("https://codingapple1.github.io/shop/data2.json")
+            .then((결과) => {
+              let copy = [...shoes, ...결과.data];
+              setShoes(copy);
+            })
+            .catch(() => {
+              console.log("실패함");
+            });
+        }}
+        // fetch('https://codingapple1.github.io/shop/data2.json')
+        // .then(결과 => 결과.json()).then((결과) => console.log(결과))
+        // }}
+      >
+        버튼
+      </button>
     </div>
   );
 }
