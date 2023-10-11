@@ -8,6 +8,7 @@ import { Route, Routes, Link, useNavigate, Outlet } from "react-router-dom";
 import Detail from "./routes/Detail";
 import axios from "axios";
 import Cart from "./routes/Cart";
+import { useQuery } from "@tanstack/react-query";
 
 function App() {
   let [shoes, setShoes] = useState(data);
@@ -23,9 +24,21 @@ function App() {
     localStorage.setItem('watched', JSON.stringify([]))
   }, [])
 
+
+
+  // 실시간 데이터 -> sns, 코인거래소 같은데 쓰임
+  // react-query로 ajax 요청하는 법
+  let result = useQuery(['작명'], ()=>
+   axios.get('https://codingapple1.github.io/userdata.json')
+    .then((a)=>{ 
+      console.log('요청됨')
+      return a.data 
+    }), {staleTime : 2000}
+  )
+
   return (
     <div>
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="light" variant="light">
         <Container>
           <Navbar.Brand href="#home">Shop</Navbar.Brand>
           <Nav className="me-auto">
@@ -58,8 +71,14 @@ function App() {
               Detail2
             </Nav.Link>
           </Nav>
+          <Nav className="ms-auto">
+            {result.isLoading && '로딩중' }
+            {result.error && '에러남' }
+            {result.data && result.data.name}
+          </Nav>
         </Container>
       </Navbar>
+
 
       <Routes>
         <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
@@ -103,6 +122,7 @@ function App() {
       >
         버튼
       </button>
+
     </div>
   );
 }
