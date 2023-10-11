@@ -8,6 +8,8 @@ function Detail(props) {
   let [box, setBox] = useState(true);
   let [num, setNum] = useState("");
   let [tab, setTab] = useState(0);
+  let [fade2, setFade2] = useState('');
+
 
   useEffect(() => {
     let a = setTimeout(() => {
@@ -24,8 +26,16 @@ function Detail(props) {
     }
   }, [num]);
 
+  useEffect(() => {
+    setFade2('end')
+    return () => {
+      setFade2('')
+    }
+  }, [])
+
+
   return (
-    <div className="container">
+    <div className={"container start " + fade2}>
       <div className="col-md-6">
         <img
           src="https://codingapple1.github.io/shop/shoes1.jpg"
@@ -49,38 +59,55 @@ function Detail(props) {
 
       <Nav variant="tabs" defaultActiveKey="link0">
         <Nav.Item>
-          <Nav.Link onClick= {() => {
-            setTab(0)
-          }}eventKey="link0">버튼0</Nav.Link>
+          <Nav.Link
+            onClick={() => {
+              setTab(0);
+            }}
+            eventKey="link0"
+          >
+            버튼0
+          </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link onClick={() => {
-            setTab(1)
-          }} eventKey="link1">버튼1</Nav.Link>
+          <Nav.Link
+            onClick={() => {
+              setTab(1);
+            }}
+            eventKey="link1"
+          >
+            버튼1
+          </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link onClick = {() => {
-            setTab(2)
-          }}eventKey="link2">버튼2</Nav.Link>
+          <Nav.Link
+            onClick={() => {
+              setTab(2);
+            }}
+            eventKey="link2"
+          >
+            버튼2
+          </Nav.Link>
         </Nav.Item>
       </Nav>
-      <TabContent tab = {tab} />
+      <TabContent tab={tab} />
     </div>
   );
 }
 
-function TabContent({tab}){
-  // if(props.tab === 0){
-  //   return <div>내용0</div>
-  // }
-  // if(props.tab === 1){
-  //   return <div>내용1</div>
-  // }
-  // if(props.tab === 2){
-  //   return <div>내용2</div>
-  // }
-  return [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][tab]
-}
+function TabContent({ tab }) {
+  let [fade, setFade] = useState('')
 
+  useEffect(() => {
+    setTimeout(() => {setFade('end')}, 100)
+    return () => {setFade('')}
+  }, [tab])
+
+  return (
+    // <div className='start end'>
+    <div className= {'start ' + fade}>
+      {[<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][tab]}
+    </div>
+  )
+}
 
 export default Detail;
