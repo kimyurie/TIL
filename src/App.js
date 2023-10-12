@@ -3,44 +3,72 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import data from "./data";
-import { Suspense, lazy, useEffect, useState } from "react";
+import {
+  Suspense,
+  lazy,
+  useDeferredValue,
+  useEffect,
+  useState,
+  useTransition,
+} from "react";
 import { Route, Routes, Link, useNavigate, Outlet } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 // import Detail from "./routes/Detail";
 // import Cart from "./routes/Cart";
 // Detail, Cart 컴포넌트가 필요해지면 import 해주세요 => 첫페이지 로딩 속도 향상시킴
-const Detail = lazy(() => import('./routes/Detail'))
-const Cart = lazy(() => import('./routes/Cart'))
+const Detail = lazy(() => import("./routes/Detail"));
+const Cart = lazy(() => import("./routes/Cart"));
+
+let a = new Array(10000).fill(0);
 
 function App() {
   let [shoes, setShoes] = useState(data);
   let navigate = useNavigate();
+  let [name, setName] = useState("");
+  // let [isPending, startTransition] = useTransition();
+  let state1 = useDeferredValue(name);
 
-  // 상세페이지 들어가면 현재 페이지에 있는 상품 id를 
+  // 상세페이지 들어가면 현재 페이지에 있는 상품 id를
   // localStorage에 저장되게
 
   // 1. 누가 상세페이지 접속하면
   // 2. 현재 페이지에서 보이는 상품 id 가져와서
   // 3. localStorage에 watch 항목에 있던 []에 추가
   useEffect(() => {
-    localStorage.setItem('watched', JSON.stringify([]))
-  }, [])
-
-
+    localStorage.setItem("watched", JSON.stringify([]));
+  }, []);
 
   // 실시간 데이터 -> sns, 코인거래소 같은데 쓰임
   // react-query로 ajax 요청하는 법
-  let result = useQuery(['작명'], ()=>
-   axios.get('https://codingapple1.github.io/userdata.json')
-    .then((a)=>{ 
-      // console.log('요청됨')
-      return a.data 
-    }), {staleTime : 2000}
-  )
+  let result = useQuery(
+    ["작명"],
+    () =>
+      axios.get("https://codingapple1.github.io/userdata.json").then((a) => {
+        // console.log('요청됨')
+        return a.data;
+      }),
+    { staleTime: 2000 }
+  );
 
   return (
     <div>
+      <input
+        onChange={(e) => {
+          // startTransition(()=>{
+          setName(e.target.value);
+          // })
+        }}
+      />
+      {/* {
+      isPending ? "로딩중기다리셈" : 
+        a.map(()=> {
+          return <div>{name}</div>
+        })
+      } */}
+      {a.map(() => {
+        return <div>{state1}</div>;
+      })}
       <Navbar bg="light" variant="light">
         <Container>
           <Navbar.Brand href="#home">Shop</Navbar.Brand>
@@ -75,20 +103,22 @@ function App() {
             </Nav.Link>
           </Nav>
           <Nav className="ms-auto">
-            {result.isLoading && '로딩중' }
-            {result.error && '에러남' }
+            {result.isLoading && "로딩중"}
+            {result.error && "에러남"}
             {result.data && result.data.name}
           </Nav>
         </Container>
       </Navbar>
 
-
       <Routes>
-        <Route path="/detail/:id" element={
-        <Suspense fallback={<div>Detail 컴포넌트 로드중임</div>}>
-          <Detail shoes={shoes}/>
-        </Suspense>
-          } />
+        <Route
+          path="/detail/:id"
+          element={
+            <Suspense fallback={<div>Detail 컴포넌트 로드중임</div>}>
+              <Detail shoes={shoes} />
+            </Suspense>
+          }
+        />
         <Route
           path="/"
           element={
@@ -129,7 +159,6 @@ function App() {
       >
         버튼
       </button>
-
     </div>
   );
 }
