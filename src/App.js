@@ -34,7 +34,7 @@ function App() {
   let result = useQuery(['작명'], ()=>
    axios.get('https://codingapple1.github.io/userdata.json')
     .then((a)=>{ 
-      console.log('요청됨')
+      // console.log('요청됨')
       return a.data 
     }), {staleTime : 2000}
   )

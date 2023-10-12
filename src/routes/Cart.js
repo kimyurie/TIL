@@ -2,13 +2,30 @@ import { Table } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { 이름변경, 나이증가 } from "../store/userSlice";
 import { addCount } from "../store/store";
+import { memo, useMemo, useState } from "react";
+
+// 꼭 필요할 때만 child 컴포넌트 재랜더링 하도록
+let Child = memo(function(){
+  console.log('재랜더링됨')
+  return <div>자식임</div>
+})
+// => child로 전송되는 props가 변할때만 재랜더링
+
+// function 함수(){
+//   return 반복문10억번돌린결과
+// }
 
 function Cart() {
   let state = useSelector((state) => state);
   let dispatch = useDispatch();
+  let [count, setCount] = useState(0);
+  // // useMemo 사용 시 컴포넌트 로드시 1회만 실행됨 (useEffect와 비슷)
+  // let result = useMemo(() => {return 함수()}, [])
 
   return (
     <>
+      <Child/>
+      <button onClick={() => {setCount(count+1)}}>child재랜더링버튼</button>
       <p>{state.user.name}의 장바구니</p>
       나이 : {state.user.age}
       <Table>
