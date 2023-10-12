@@ -28,6 +28,8 @@ function App() {
   let [name, setName] = useState("");
   // let [isPending, startTransition] = useTransition();
   let state1 = useDeferredValue(name);
+  let [count, setCount] = useState(0);
+  let [age, setAge] = useState(20);
 
   // 상세페이지 들어가면 현재 페이지에 있는 상품 id를
   // localStorage에 저장되게
@@ -51,8 +53,21 @@ function App() {
     { staleTime: 2000 }
   );
 
+  useEffect(() => {
+    if(count !=0 && count < 3){
+      setAge(age+1);
+    }
+  }, [count])
+
   return (
     <div>
+      <div>
+        <div>안녕하십니까 전 {age}</div>
+         {/* async -> sync(순차적)으로 실행하고 싶으면 useEffect 활용 */}
+        <button onClick={() => {
+          setCount(count+1);
+        }}>누르면한살먹기</button>
+      </div>
       <input
         onChange={(e) => {
           // startTransition(()=>{
