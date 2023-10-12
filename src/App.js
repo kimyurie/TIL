@@ -3,12 +3,15 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import data from "./data";
-import { useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { Route, Routes, Link, useNavigate, Outlet } from "react-router-dom";
-import Detail from "./routes/Detail";
 import axios from "axios";
-import Cart from "./routes/Cart";
 import { useQuery } from "@tanstack/react-query";
+// import Detail from "./routes/Detail";
+// import Cart from "./routes/Cart";
+// Detail, Cart 컴포넌트가 필요해지면 import 해주세요 => 첫페이지 로딩 속도 향상시킴
+const Detail = lazy(() => import('./routes/Detail'))
+const Cart = lazy(() => import('./routes/Cart'))
 
 function App() {
   let [shoes, setShoes] = useState(data);
@@ -81,7 +84,11 @@ function App() {
 
 
       <Routes>
-        <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
+        <Route path="/detail/:id" element={
+        <Suspense fallback={<div>Detail 컴포넌트 로드중임</div>}>
+          <Detail shoes={shoes}/>
+        </Suspense>
+          } />
         <Route
           path="/"
           element={
