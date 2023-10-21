@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zIndex</title>
+    <style>
+        #wrapper {
+            position: relative;
+            border: 1px solid #000;
+            height: 500px;
+        }
+
+        .box {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #0000ff;
+        }
+
+        #b1 {
+            left: 50px;
+            top: 50px;
+            background-color: #ff8c00;
+            z-index: 100;
+            z-index: -1;
+            /*똑같은 속성이면 나중에 있는게 적용, 음수 순서도 가능*/
+        }
+
+        #b2 {
+            left: 100px;
+            top: 100px;
+            background-color: #00bfff;
+            z-index: 200;
+        }
+
+        #b3 {
+            background-color: #ffd700;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>zIndex</h2>
+    </header>
+    <section id="wrapper">
+        <div class="box" id="b1"></div>
+        <div class="box" id="b2"></div>
+        <div class="box" id="b3"></div>
+    </section>
+</body>
+
+</html>

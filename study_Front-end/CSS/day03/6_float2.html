@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float-2</title>
+    <style>
+        ul {
+            padding: 15px 20px;
+            background-color: #c0c0c0;
+        }
+
+        ul::after {
+            /*css 가 망가질 수 있을 때 이렇듯 after 속성 이용해서 만듬*/
+            /*가상요소를 만든후 클리어 보스를 해서 만듬*/
+            content: "";
+            display: block;
+            clear: both;
+            /*오른쪽, 왼쪽을 취소?*/
+        }
+
+        ul>li {
+            float: left;
+            margin: 5px;
+            padding: 5px 10px;
+            background-color: #ffc0cb;
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>float1</li>
+        <li>float2</li>
+        <li>float3</li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+    <script>
+        const params = new URLSearchParams(location.search);
+        console.log(params.get('postId'));
+
+        for (const param of params) {
+            console.log(param);
+        }
+    </script>
+</head>
+
+<body>
+    <!-- 
+        /posts를 활용하여 10개의 데이터만 가지고 온 후
+        화면에 제목과 타이틀을 표기
+        제목을 누르면 post.html로 이동하고
+        주소로 데이터를 전달하여
+        선택한 해당 post의 상세 페이지(제목, 이메일, 내용)를 post.html로 구현
+
+        심화*
+        댓글 창도 같이 구현 (ㄴcomments)
+     -->
+    <table>
+        <tr>
+            <th>제목</th>
+            <th>내용</th>
+        </tr>
+    </table>
+
+    <script>
+        const BACKEND_URL = 'https://jsonplaceholder.typicode.com';
+        const $table = document.querySelector('table');
+
+        axios.get(BACKEND_URL + '/posts').then((res) => {
+            console.log(res.data);
+            const ten_res = res.data.slice(0, 10);
+
+            /*
+                <tr>
+                    <td>제목</td>
+                    <td>내용</td>
+
+                */
+            for (post of ten_res) {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><a href='./post2.html?postId=${post.id}'>${post.title}</td>
+                    <td>${post.body}</td>
+                `;
+
+                $table.append(tr);
+            }
+        })
+    </script>
+</body>
+
+</html>

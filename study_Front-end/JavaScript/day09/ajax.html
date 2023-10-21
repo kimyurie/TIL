@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script> // ㄴAJAX는 앞으로 사용할일 평생 없을 것 기억하지 마쎄용
+        const BACKEND_URL = "https://jsonplaceholder.typicode.com/posts"
+
+        let req = new XMLHttpRequest();
+        req.addEventListener('load', (res) => {
+            console.log(res.currentTarget.response);
+        });
+
+        req.open('GET', BACKEND_URL);
+        req.send();
+
+        /*
+        JQUERY (DOM API를 쉡게 활용할 수 있게 하는 라이브러리, 그러나 규모가 커짐에 따라 현제는 지양) ㄴㄴ 얘도 현재는 잘 사용안함
+
+        $ajax({
+            method: 'GET'
+            url: BACKEND_URL
+        }).then((res)=>{
+            console.log(res)
+        })
+        */
+    </script>
+</body>
+
+</html>

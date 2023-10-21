@@ -1,0 +1,174 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #deb887;
+  height: 600px;
+}
+
+#top {
+  margin: 40px 40px;
+}
+
+button {
+  float: right;
+  padding-top: 20px;
+}
+
+li {
+  text-align: center;
+  font-size: 70px;
+  list-style: none;
+  color: #fff;
+}
+
+#main_text {
+  margin-top: 0px;
+  text-shadow: 5px 5px 2px rgba(0, 0, 0, 0.3);
+}
+
+#text_button {
+  height: 300px;
+  text-align: center;
+}
+
+div > p:first-child {
+  margin-top: 80px;
+  font-size: 15px;
+  color: #d3d3d3;
+}
+
+div > p:nth-child(2) {
+  margin-top: 30px;
+  font-size: 33px;
+}
+
+#text_button > div {
+  width: 150px;
+  cursor: pointer;
+  text-align: center;
+  margin: 45px auto 0;
+}
+
+#text_button > div > a {
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#box > ul > li {
+  float: left;
+}
+
+#box > ul > li:first-child > img {
+  width: 390px;
+  height: 217px;
+}
+
+#box > ul > li:nth-child(2) > img {
+  width: 270px;
+  height: 217px;
+}
+
+#box > ul > li:nth-child(3) > img {
+  width: 380px;
+  height: 217px;
+}
+
+#box > ul > li:last-child > img {
+  width: 220px;
+  height: 217px;
+}
+
+#blue_bg {
+  background-color: #000080;
+  height: 1020px;
+  text-align: center;
+}
+
+#blue_bg > p {
+  color: #ffd700;
+}
+
+#blue_bg > span {
+  color: #fff;
+  font-size: 30px;
+}
+
+#table > ul > li {
+  float: left;
+}
+
+#table > ul > li > img {
+  width: 250px;
+}
+
+#plus {
+  background-color: #000080;
+  text-align: center;
+}
+
+#plus > a {
+  font-size: 150px;
+  color: #fff;
+  text-decoration: none;
+}
+
+#last_box > ul > li {
+  float: left;
+}
+
+#last_box > ul > li > img {
+  width: 631px;
+}
+
+#location {
+  width: 600px;
+}
+
+#location > ul > li {
+  font-size: 14px;
+  color: #000;
+}
+
+#location > ul {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+#pr_inform {
+  border: 3px solid #d3d3d3;
+  width: 165px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#pr_inform:hover {
+  border: 3px solid #ffd700;
+}
+
+#pr_inform > a {
+  text-decoration: none;
+  font-size: 13px;
+  color: #778899;
+}
+
+footer > div {
+  float: left;
+  margin: 40px;
+}
+
+#last_txt {
+  color: #778899;
+  margin-bottom: 90px;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input</title>
+</head>
+<body>
+    <!-- ex) 백엔드에서 로그인하는 api(기능)의 주소가 user/Login라면 -->
+    <!-- 제출 시 input tag의 name을 자동으로 읽어서 백엔드서버에 전달-->
+
+    <!-- 정리==> 백엔드 주소에 input타입의 value를 보낼 때 사용한다-->
+
+
+    <form action="./1_책갈피.html" methods="post">
+        <!--
+            *methods
+                get
+                데이터를 url로 쿼리 혹은 파람의 형태로 전달
+
+                (쿼리? ex) user_id=123 
+                 파람? ex) 123/123 )
+
+                post
+                body(본문, 데이터) 안에 데이터를 전송
+                ex) 로그인
+                로그인의 아이디와 비밀번호와 같은 공개되면 안되는 자료이기
+                때문에 post를 이용, 사용자 고유번호
+
+        -->
+        <label><input type="radio" name="mode"/>관리자</label> <!-- name 같으면 둘 중 하나만 선택 가능-->
+        <label><input type="radio" name="mode"/>사용자</label>
+        <p>아이디: <input type="email" name="user-id"></p>
+        <p>비밀번호: <input type="password" name="user-pw"/></p>
+        <button type="submit">로그인</button>
+        <!-- <input type="submit"/> -->
+        <!-- submit
+            form 태그의 데이터를 서버에 전송할 때 쓰는 제출 버튼
+        -->
+
+
+
+        <!-- <input type="button" value="로그인"/> 
+            ===
+             <button>로그인</button>-->
+    </form>
+</body>
+</html>

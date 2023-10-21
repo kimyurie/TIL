@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+    <script>
+        console.log(location.search); // string 형태로 가지고 옴
+        const params = new URLSearchParams(location.search); // 검색하기 쉽도록 urlsearchparam 인스턴스로 변환
+        // ㄴsearch = URL에 붙은 쿼리 값을 가지고 옵니다. ?postId=3
+        console.log(params.get('postId')); // 검색해서 찾아올 수 있으며
+        // 이터러블이기 때문에 for of 사용 가능
+        for (const param of params) {
+            console.log(param); // 반환 값은 배열
+        }
+    </script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>제목</th>
+            <th>내용</th>
+        </tr>
+        <!-- 추가될 데이터 <tr></tr> -->
+    </table>
+    <!-- 
+        /posts를 활용하여 10개의 데이터만 가지고 온 후
+        화면에 제목과 타이틀을 표기
+        제목을 누르면 post.html로 이동하고
+        주소로 데이터를 전달하여
+        선택한 해당 post의 상세 페이지를 post.html로 구현
+
+        심화*
+        댓글 창도 같이 구현 (ㄴcomments)
+     -->
+
+    <script>
+
+        const $table = document.querySelector('table');
+        const BACKEND_URL = 'https://jsonplaceholder.typicode.com';
+        axios.get(BACKEND_URL + '/posts').then((res) => {
+            console.log(res.data);
+            const ten_arr = res.data.slice(0, 10);
+            for (const post of ten_arr) {
+                /*
+                <tr>
+                    <td>제목</td>
+                    <td>내용</td>
+
+                */
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td><a href='./post.html?postId=${post.id}'>${post.title}</td>
+                    <td>${post.body}</td>
+                `;
+
+                $table.append(tr);
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

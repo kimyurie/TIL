@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>상세보기</h2>
+    <div>
+        제목:
+        <span id="title"></span>
+    </div>
+    <table>
+        <tr>
+            <th>이메일</th>
+            <th>내용</th>
+        </tr>
+    </table>
+
+    <script>
+        const searchParams = new URLSearchParams(location.search);
+        const postId = searchParams.get('postId');
+
+        const BACKEND_URL = 'https://jsonplaceholder.typicode.com';
+        const $title = document.querySelector('#title');
+        const $table = document.querySelector('table');
+
+        axios.get(BACKEND_URL + `/posts/${postId}`).then((res) => {
+            $title.innerHTML = res.data.title;
+        })
+
+        axios.get(BACKEND_URL + `/comments?postId=${postId}`).then((res) => {
+            for (const post of res.data) {
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                        <td>${post.email}</td>
+                        <td>${post.body}</td>
+                     `;
+
+                $table.append(tr);
+            }
+
+
+
+        })
+    </script>
+</body>
+
+</html>

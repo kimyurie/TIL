@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>blur</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 부모 => 이미지 */
+        body {
+            background: url("../day01/img/1.jpg") no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* 자식 => 투명한 판, 흐림(퍼짐) */
+        #container {
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(30px);
+            /*흐림*/
+            backdrop-filter: contrast(30px);
+            /*회색빛*/
+            backdrop-filter: grayscale(0.8);
+            /*흑백*/
+            backdrop-filter: iinver(1);
+            /*필터 종류...*/
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        #inner>span {
+            font-size: 4rem;
+            color: #ffa500;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="inner">
+            KIM SEONG YONG"S FORNTEND<br />
+            <span>STUDY</span>
+        </div>
+    </div>
+</body>
+
+</html>

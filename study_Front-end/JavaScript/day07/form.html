@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+
+<!-- ㄴ 로그인버튼 눌러도 위에 url창에 입력된 값 나오지 않게 만들기(action으로 이동안하게 만들깅) -->
+
+<body>
+    <form action="#">
+        <p><input name="user_email" /></p>
+        <p><input name="user_pw" /></p>
+        <button>로그인</button> <!--ㄴbutton 기본타입은 submit-->
+    </form>
+    <script>
+        const onLogin = (e) => {
+            e.preventDefault(); // form 태그의 기본 성질 막기 
+            const emailInput = document.querySelector('[name="user_email"]'); // ㄴ '[name="user_email"]'는 속성 선택자!
+            const passwordInput = document.querySelector('[name="user_pw"]');
+            console.log(emailInput.value, passwordInput.value);
+        };
+
+        const form = document.getElementsByTagName('form')[0];
+        form.addEventListener("submit", onLogin);
+    </script>
+</body>
+
+</html>

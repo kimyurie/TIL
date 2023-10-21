@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 텍스트3</title>
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+    -->
+    <style>
+        /* 
+            무료 웹 폰트
+                구글폰트 : https://fonts.google.com/
+            
+                apple, [noto sans], roboto
+
+                적용 방법 3가지
+                1.
+                <link/> 태그로 가지고 와서 사용
+                2.
+                import로 참조해서 가지고 와서 사용
+                3.
+                다운로드 가지고 와서 사용
+        */
+
+        /* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap'); */
+
+        /* 다운로드 시 폰트 적용법 */
+        @font-face{
+            font-family: Roboto;
+            src: url("./font/Roboto-Regular.ttf")
+        }
+
+        .notoSans{
+            font-family: 'Noto Sans KR', sans-serif;
+            /*
+                참조, 링크, 다운된 폰트로 글씨 폰트를 바꿔주는 속성
+            */
+        }
+        .roboto{
+            font-family: 'Roboto' 
+        }
+
+        .weight{
+            font-weight: 400;
+            /*
+                글자의 굵기
+
+                100~900
+                thin : 100
+                기본 설정크기 : 400
+                bold : 700
+                extrA-bold: 900
+            */
+        }
+
+    </style>
+</head>
+<body>
+    <h2>CSS 텍스트 3</h2>
+        <p class="normal weight">안녕하세요 저는 김유리입니다. 오늘은 반가운 하루입니다.</p>
+        <p class="notoSans weight">안녕하세요 저는 김유리입니다. 오늘은 반가운 하루입니다.</p>
+        <p class="roboto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae accusamus repellat id. Consectetur quo fuga magni voluptatem corrupti, obcaecati saepe? Quidem, ducimus assumenda. Illum a reprehenderit quisquam? Voluptate, temporibus sunt!</p>
+        <p class="roboto weight">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste adipisci excepturi laborum, autem quod et ratione tempora cumque, voluptatum asperiores cupiditate eos velit ducimus blanditiis. Quisquam modi provident reprehenderit aspernatur.</p>  
+        <table border="1">
+            <tr style="background-color:red">
+                <td style="background-color:blue">안녕하세요</td>
+                <td>저는</td>
+                <td>김유리입니다</td>
+            </tr>
+        </table>
+</body>
+</html>
